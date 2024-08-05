@@ -100,8 +100,16 @@ public class BookTransactionServiceImpl implements BookTransactionService {
                 requestedBook.setCopiesAvailable(requestedBook.getCopiesAvailable() - 1);
             }
             case RETURNED -> {
+                if(bookTransaction.getDueDate() == null){
+                    throw new NotFoundException("Due date is null");
+                }
                 bookTransaction.setReturnDate(updateRequest.returnDate());
                 requestedBook.setCopiesAvailable(requestedBook.getCopiesAvailable() + 1);
+            }
+            case CANCELLED -> {
+                if(bookTransaction.getReturnDate() != null){
+                    throw new NotFoundException("Book already returned");
+                }
             }
         }
 
