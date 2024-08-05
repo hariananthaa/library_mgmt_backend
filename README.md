@@ -18,6 +18,26 @@ This is a Spring Boot application for managing a library, using a PostgreSQL dat
 - Liquibase (for database versioning)
 - Swagger UI (for API documentation)
 
+## Authentication and Authorization
+
+This application implements a robust role-based authorization system to ensure secure access to various features:
+
+- **User Roles**:
+
+    - Admin: Can manage books, members, and transactions.
+    - Member: Can view books and manage their own transactions.
+
+- **Access Control**:
+
+    - Certain routes and actions are restricted based on user roles.
+
+- **JWT Authentication**:
+
+    - Uses JSON Web Tokens for secure authentication.
+    - Tokens are stored in HTTP-only secure cookies, enhancing security against XSS attacks.
+    - Token expiration time: **10 Minutes**
+    - Automatic token refresh mechanism to maintain user sessions.
+
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
@@ -68,6 +88,12 @@ To apply database changes:
 - You can also access the API specification in JSON format at http://localhost:8081/v3/api-docs.
 - By default, all the endpoints are restricted except http://localhost:8081/api/v1/auth/authenticate.
 - By using above endpoint, you can get the JWT token to access the other APIs.
+
+## Credentials
+Admin Credential:
+- email: admin@zit.com
+- password: test@123
+- You can add members via this admin credential.
 
 ## Deployment
 
