@@ -1,0 +1,10 @@
+server:
+  servlet:
+    contextPath: /
+  port: ${SERVER_PORT:8081}
+
+spring:
+  application:
+    name: library_mgmt_backend
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
