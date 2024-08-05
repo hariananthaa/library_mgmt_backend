@@ -73,9 +73,6 @@ public class BookTransactionServiceImpl implements BookTransactionService {
         existing.setMember(member);
         existing = bookTransactionRepository.save(existing);
 
-        requestedBook.setCopiesAvailable(requestedBook.getCopiesAvailable() - 1);
-        bookService.updateBookById(bookTransactionRequest.bookId(), requestedBook);
-
         return existing;
     }
 
