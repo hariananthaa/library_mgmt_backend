@@ -15,7 +15,7 @@ import static com.hsk.library_mgmt_backend.web.v1.enums.Permission.*;
 public enum Role {
     ADMIN(Set.of(ADMIN_READ, ADMIN_UPDATE, ADMIN_CREATE, ADMIN_DELETE, MEMBER_READ, MEMBER_UPDATE, MEMBER_CREATE, MEMBER_DELETE)),
     STUDENT(Set.of(MEMBER_READ, MEMBER_UPDATE, MEMBER_CREATE, MEMBER_DELETE)),
-    FAULTY(Set.of(MEMBER_READ, MEMBER_UPDATE, MEMBER_CREATE, MEMBER_DELETE));
+    FACULTY(Set.of(MEMBER_READ, MEMBER_UPDATE, MEMBER_CREATE, MEMBER_DELETE));
 
     @Getter
     private final Set<Permission> permissions;
