@@ -95,6 +95,9 @@ Admin Credential:
 - password: test@123
 - You can add members via this admin credential.
 
+## Database Structure
+[https://dbdiagram.io/d/library_mgmt_system-66b9968c8b4bb5230ed5d0c0](https://dbdiagram.io/d/library_mgmt_system-66b9968c8b4bb5230ed5d0c0)
+
 ## Deployment
 
 This application is hosted on Render, a cloud platform for static sites and Serverless Functions.
