@@ -24,14 +24,15 @@ public class MemberHelper {
     private final MemberService memberService;
     private final MemberMapper memberMapper;
 
-    public ResponseData<String> addMember(MemberRequest memberRequest, BindingResult bindingResult) {
+    public ResponseData<MemberDto> addMember(MemberRequest memberRequest, BindingResult bindingResult) {
         BindingResultHelper.processBindingResult(bindingResult);
-        return memberService.addMember(memberRequest);
+        Member member =  memberService.addMember(memberRequest);
+        return ResponseUtil.responseConverter(memberMapper.toDto(member));
     }
 
     public ResponseData<MemberDto> getMemberById(Long id) {
-        Member income = memberService.getMemberById(id);
-        return ResponseUtil.responseConverter(memberMapper.toDto(income));
+        Member member = memberService.getMemberById(id);
+        return ResponseUtil.responseConverter(memberMapper.toDto(member));
     }
 
     public ResponsePaginationData<List<MemberDto>> getAllMembers(Pageable pageable, @Valid String query) {

@@ -24,7 +24,7 @@ public class LibraryMgmtBackendApplication {
             Member existingAdmin = service.getMemberByEmail(adminEmail);
             if (existingAdmin == null) {
                 var admin = new MemberRequest("Admin", adminEmail, "9876543210", ADMIN, "test@123");
-                System.out.println("Admin token: " + service.addMember(admin).getData());
+                System.out.println("Admin created with email "+admin.email() +" and password test@123" );
             }
         };
     }

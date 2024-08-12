@@ -47,7 +47,7 @@ public class MemberApi {
             @ApiResponse(responseCode = "201", description = "Member successfully added"),
             @ApiResponse(responseCode = "400", description = "Invalid request data")
     })
-    public ResponseData<String> addMember(@Valid @RequestBody MemberRequest request,
+    public ResponseData<MemberDto> addMember(@Valid @RequestBody MemberRequest request,
                                           BindingResult bindingResult) {
         return memberHelper.addMember(request, bindingResult);
     }

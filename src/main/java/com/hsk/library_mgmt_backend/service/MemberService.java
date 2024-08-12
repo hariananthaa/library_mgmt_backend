@@ -9,7 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface MemberService {
-    ResponseData<String> addMember(MemberRequest member);
+    Member addMember(MemberRequest member);
 
     Member getMemberByEmail(String email);
 

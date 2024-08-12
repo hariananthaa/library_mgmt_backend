@@ -59,7 +59,7 @@ public class MemberServiceImpl implements MemberService {
      */
     @Override
     @Transactional
-    public ResponseData<String> addMember(MemberRequest member) {
+    public Member addMember(MemberRequest member) {
         Member existing = memberRepository.findByEmail(member.email()).orElse(null);
         if (existing != null) throw new AlreadyExistingException("Member already present");
         existing = new Member();
@@ -69,13 +69,14 @@ public class MemberServiceImpl implements MemberService {
         existing.setPassword(passwordEncoder.encode(member.password()));
         existing.setRole(member.role());
         existing = memberRepository.save(existing);
-        Map<String, Object> claims = new HashMap<>();
-        claims.put("name", existing.getName());
-        claims.put("id", existing.getId());
-        claims.put("phone", existing.getPhone());
-        claims.put("role", existing.getRole());
-        var jwtToken = jwtService.generateToken(existing, claims);
-        return ResponseUtil.responseConverter(jwtToken, 201);
+//        Map<String, Object> claims = new HashMap<>();
+//        claims.put("name", existing.getName());
+//        claims.put("id", existing.getId());
+//        claims.put("phone", existing.getPhone());
+//        claims.put("role", existing.getRole());
+//        var jwtToken = jwtService.generateToken(existing, claims);
+//        return ResponseUtil.responseConverter(jwtToken, 201);
+        return existing;
     }
 
     /**
