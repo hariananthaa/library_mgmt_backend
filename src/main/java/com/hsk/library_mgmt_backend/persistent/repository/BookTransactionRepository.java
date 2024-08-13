@@ -47,4 +47,7 @@ public interface BookTransactionRepository extends JpaRepository<BookTransaction
 
     @Query("SELECT bt FROM BookTransaction bt WHERE bt.dueDate < CURRENT_DATE AND bt.returnDate IS NULL AND bt.member.id = :memberId AND bt.status != 'CANCELLED'")
     Page<BookTransaction> findOverdueBooksByMember(@Param("memberId") Long memberId, Pageable pageable);
+
+    @Query("SELECT bt FROM BookTransaction bt WHERE bt.dueDate < CURRENT_DATE AND bt.returnDate IS NULL AND bt.status != 'CANCELLED'")
+    Page<BookTransaction> findOverdueBooksForAdmin(Pageable pageable);
 }

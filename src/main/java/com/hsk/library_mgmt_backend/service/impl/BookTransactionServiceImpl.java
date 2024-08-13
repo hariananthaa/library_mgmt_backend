@@ -235,7 +235,12 @@ public class BookTransactionServiceImpl implements BookTransactionService {
      */
     @Override
     public Page<BookTransactionDto> getAllOverdueBookTransactions(Pageable pageable, Long memberId) {
-        Page<BookTransaction> bookTransactionPage = bookTransactionRepository.findOverdueBooksByMember(memberId, pageable);
+        Page<BookTransaction> bookTransactionPage;
+        if(memberId == null){
+            bookTransactionPage = bookTransactionRepository.findOverdueBooksForAdmin(pageable);
+        } else {
+            bookTransactionPage = bookTransactionRepository.findOverdueBooksByMember(memberId, pageable);
+        }
         List<BookTransactionDto> bookTransactionDtoPage = bookTransactionMapper.toDto(bookTransactionPage.getContent());
         return new PageImpl<>(bookTransactionDtoPage, pageable, bookTransactionDtoPage.size());
     }
