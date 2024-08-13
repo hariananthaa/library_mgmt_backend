@@ -95,6 +95,16 @@ Admin Credential:
 - password: test@123
 - You can add members via this admin credential.
 
+## Security
+### Password Handling
+
+The system implements robust password security measures to protect user data:
+
+* **Password Encoding:** Passwords are encoded using a strong encoding algorithm before storage.
+* **Secure Storage:** Encoded passwords are stored securely in the database.
+
+By following these practices, the system ensures that even if the database is compromised, passwords remain protected.
+
 ## Database Structure
 [https://dbdiagram.io/d/library_mgmt_system-66b9968c8b4bb5230ed5d0c0](https://dbdiagram.io/d/library_mgmt_system-66b9968c8b4bb5230ed5d0c0)
 
